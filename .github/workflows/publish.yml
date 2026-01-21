@@ -38,12 +38,22 @@ jobs:
           token: ${{ secrets.BLOG_TOKEN }}
           path: blog
           ref: main
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: maven
+      - name: List
+        run: 'ls blog'
+      - name: Build with Maven
+        working-directory: 'blog'
+        run: 'mvn -B -f code/pom.xml package test exec:java'
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
