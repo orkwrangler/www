@@ -36,6 +36,8 @@ jobs:
         with:
           repository: orkwranger/blog
           token: ${{ secrets.BLOG_TOKEN }}
+          path: blog
+          ref: main
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
