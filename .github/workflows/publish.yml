@@ -45,7 +45,7 @@ jobs:
           cache: maven
       - name: Document Classpath
         working-directory: 'blog'
-        run: 'mvn -B -f code/pom.xml dependency:build-classpath -Dmdep.outputFile=code/target/cp.txt'
+        run: 'mvn -B -f code/pom.xml dependency:build-classpath -Dmdep.outputFile=target/cp.txt'
       - name: List
         working-directory: 'blog'
         run: 'ls code'
