@@ -43,21 +43,9 @@ jobs:
           java-version: '26'
           distribution: 'temurin'
           cache: maven
-      - name: Document Classpath
-        working-directory: 'blog'
-        run: 'mvn -B -f code/pom.xml dependency:build-classpath -Dmdep.outputFile=target/cp.txt'
-      - name: List
-        working-directory: 'blog'
-        run: 'ls code'
-      - name: Print Classpath
-        working-directory: 'blog'
-        run: 'cat code/target/cp.txt'
       - name: Build with Maven
         working-directory: 'blog'
-        run: 'mvn -B -f code/pom.xml compile exec:java'
-      - name: Test with Maven
-        working-directory: 'blog'
-        run: 'mvn -B -f code/pom.xml test'
+        run: 'mvn -B -f code/pom.xml verify exec:java'
       - name: Setup Pages
         uses: actions/configure-pages@v6.0.0
       - name: Upload artifact
