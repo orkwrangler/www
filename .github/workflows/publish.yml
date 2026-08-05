@@ -43,6 +43,7 @@ jobs:
           java-version: '26'
           distribution: 'temurin'
           cache: maven
+          cache-dependency-path: 'blog/code/pom.xml'
       - name: Build with Maven
         working-directory: 'blog'
         run: 'mvn -B -f code/pom.xml verify exec:java'
