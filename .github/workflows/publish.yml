@@ -37,11 +37,11 @@ jobs:
           token: ${{ secrets.BLOG_TOKEN }}
           path: blog
           ref: main
-      - name: Set up JDK 26
+      - name: Set up JDK 27
         uses: actions/setup-java@v5
         with:
-          java-version: '26'
-          distribution: 'temurin'
+          java-version: '27'
+          distribution: 'corretto'
           cache: maven
           cache-dependency-path: 'blog/code/pom.xml'
       - name: Build with Maven
